@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  scraper:
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      - 8080:8080
+  postgres:
+    image: postgres
+    volumes:
+      - flats-postgresql-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: sreality
+      POSTGRES_PASSWORD: opaq3195
+
+volumes:
+  flats-postgresql-data:
