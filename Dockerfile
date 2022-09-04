@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 EXPOSE 8080
 WORKDIR /python/scraper
-CMD python ../server/web_server.py
+CMD scrapy crawl flats_crawl && python ../server/web_server.py
